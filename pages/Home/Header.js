@@ -27,7 +27,7 @@ const Header = () => {
           </div>
   
           {/* Scrolling Logos */}
-          <div className="relative overflow-hidden mt-12">
+          <div className="absolute overflow-hidden mt-12">
             <div className="flex items-center animate-scroll whitespace-nowrap">
               {/* Duplicate logos to create an infinite loop */}
               {[...Array(2)].map((_, i) => (
