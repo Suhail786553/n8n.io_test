@@ -12,25 +12,27 @@ export default function Dashboard() {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-white p-4">
-      {/* Tabs */}
-      <div className="flex space-x-4 mb-6">
-        {tabs.map((tab) => (
-          <button
-            key={tab.name}
-            className={`px-12 py-8 rounded-lg cursor-pointer font-medium transition-all duration-300 shadow-md ${
-              activeTab.name === tab.name
-                ? "bg-gray-900 text-white"
-                : "bg-white text-gray-700 border"
-            }`}
-            onClick={() => setActiveTab(tab)}
-          >
-            <span className="mr-2">{tab.icon}</span> {tab.name}
-          </button>
-        ))}
+      {/* Tabs - Scrollable on Mobile */}
+      <div className="w-full overflow-x-auto">
+        <div className="flex space-x-4 mb-6 w-max mx-auto">
+          {tabs.map((tab) => (
+            <button
+              key={tab.name}
+              className={`px-6 py-3 md:px-12 md:py-8 rounded-lg cursor-pointer font-medium transition-all duration-300 shadow-md whitespace-nowrap ${
+                activeTab.name === tab.name
+                  ? "bg-gray-900 text-white"
+                  : "bg-white text-gray-700 border"
+              }`}
+              onClick={() => setActiveTab(tab)}
+            >
+              <span className="mr-2">{tab.icon}</span> {tab.name}
+            </button>
+          ))}
+        </div>
       </div>
 
       {/* Image Section */}
-      <div className="relative w-full max-w-4xl bg-white rounded-xl shadow-lg border-4 border-gray-900 p-8 border-t-16">
+      <div className="relative w-full max-w-4xl bg-white rounded-xl shadow-lg border-4 border-gray-900 p-4 md:p-8 border-t-16">
         <img src={activeTab.image} alt={activeTab.name} className="w-full rounded-lg" />
       </div>
     </div>
